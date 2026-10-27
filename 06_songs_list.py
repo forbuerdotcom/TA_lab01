@@ -45,4 +45,9 @@ violator_songs_dict = {
 # в формате
 #   А другие три песни звучат ХХХ минут
 # Обратите внимание на округление
-
+total = 0
+for title, duration in violator_songs_list:
+    if title in ('Halo', 'Enjoy the Silence', 'Clean'):
+        total += duration
+total = round(total, 3)
+print(f"Три песни звучат {total} минут")
