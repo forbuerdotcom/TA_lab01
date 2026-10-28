@@ -35,30 +35,25 @@ shops = {
 # Указать надо только по 2 магазина с минимальными ценами
 
 
-def collect_all_offers(shops):
-    #Собирает все предложения по каждому товару:
-    #{название товара: [{'shop': ..., 'price': ...}, ...]}
-    #
-    offers = {}
-    for shop_name, products in shops.items():
-        for product in products:
-            name = product['name']
-            if name not in offers:
-                offers[name] = []
-            offers[name].append({'shop': shop_name, 'price': product['price']})
-    return offers
+def build_sweets(shops):
+    # 1. Собираем все предложения по каждому товару:
+    #    {название: [{'shop': ..., 'price': ...}, ...], ...}
+    by_name = {}
+    for shop, products in shops.items():
+        for p in products:
+            name = p['name']
+            if name not in by_name:
+                by_name[name] = []
+            by_name[name].append({'shop': shop, 'price': p['price']})
+
+    # 2. Из каждого списка оставляем 2 магазина с минимальной ценой
+    for name in by_name:
+        by_name[name] = sorted(by_name[name], key=lambda o: o['price'])[:2]
+
+    return by_name
 
 
-def pick_cheapest_two(offers):
-    #Из каждого списка оставляет 2 магазина с минимальной ценой.
-    result = {}
-    for name, items in offers.items():
-        items.sort(key=lambda item: item['price'])
-        result[name] = items[:2]
-    return result
-
-
-sweets = pick_cheapest_two(collect_all_offers(shops))
+sweets = build_sweets(shops)
 
 
 def main():
