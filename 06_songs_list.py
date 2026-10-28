@@ -33,7 +33,7 @@ violator_songs_dict = {
 # в формате "Три песни звучат ХХХ минут"
 def sum_songs_list(songs, names):
     #Сумма длительностей песен с указанными именами из списка [[name, duration], ...].
-    total = 0
+    total = 0 #счетчик
     for song_name, duration in songs:
         if song_name in names:
             total += duration

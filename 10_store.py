@@ -39,7 +39,7 @@ store = {
 # Пример:
 #   Лампа - 27 шт, стоимость 1134 руб
 
-
+#считает итоги по одному товару
 def calc_product(batches):
     total_quantity = 0
     total_cost = 0
@@ -48,16 +48,16 @@ def calc_product(batches):
         total_quantity += batch['quantity']
         total_cost += batch['quantity'] * batch['price']
 
-    return total_quantity, total_cost
+    return total_quantity, total_cost #[{'quantity': 22, 'price': 510}, {'quantity': 32, 'price': 520}........]
 
-
-def calc_all(goods, store):
+#считаем итоги по всем товарам
+def calc_all(goods, store): #goods - имя - код,    store - код ->партии
     result = {}
     for name, code in goods.items():
         result[name] = calc_product(store[code])
-    return result
+    return result   #{имя: (всего штук, всего рублей)}
 
-
+#сбор строки отчета
 def format_line(name, quantity, cost):
     return f"{name} - {quantity} шт, стоимость {cost} руб"
 

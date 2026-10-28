@@ -19,22 +19,22 @@ def meadow_set():
 
 # Выведите на консоль все виды цветов
 def all_flowers():
-    return garden_set() | meadow_set()
+    return garden_set() | meadow_set() #ИЛИ (+)
 
 
 # Выведите на консоль те, которые растут и там и там
 def common_flowers():
-    return garden_set() & meadow_set()
+    return garden_set() & meadow_set() # И (*)
 
 
 # Выведите на консоль те, которые растут в саду, но не растут на лугу
 def only_in_garden():
-    return garden_set() - meadow_set()
+    return garden_set() - meadow_set() #НЕ (-)
 
 
 # Выведите на консоль те, которые растут на лугу, но не растут в саду
 def only_in_meadow():
-    return meadow_set() - garden_set()
+    return meadow_set() - garden_set() # НЕ (-)
 
 
 def main():

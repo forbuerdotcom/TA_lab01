@@ -18,19 +18,19 @@ my_favorite_movies = 'Терминатор, Пятый элемент, Ават�
 
 
 def first_movie():
-    return my_favorite_movies[0:10]
+    return my_favorite_movies[0:10] #Терминатор
 
 
 def last_movie():
-    return my_favorite_movies[42:]
+    return my_favorite_movies[42:]  #Назад в будущее
 
 
 def second_movie():
-    return my_favorite_movies[12:25]
+    return my_favorite_movies[12:25]  #пятый элемент
 
 
 def second_from_end():
-    return my_favorite_movies[35:40]
+    return my_favorite_movies[35:40]  #Чужие
 
 
 def main():

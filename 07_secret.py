@@ -36,15 +36,15 @@ secret_message = [
 def decode_word(index):
     s = secret_message[index]
     if index == 0:
-        return s[3]
+        return s[3] #в
     if index == 1:
-        return s[9:13]
+        return s[9:13] #бане
     if index == 2:
-        return s[5:15:2]
+        return s[5:15:2] #веник
     if index == 3:
-        return s[12:6:-1]
+        return s[12:6:-1] #дороже
     if index == 4:
-        return s[20:15:-1]
+        return s[20:15:-1] #денег
     raise IndexError(f"Нет правила для индекса {index}")
 
 

@@ -17,18 +17,18 @@ my_family_height = [
 # Выведите на консоль рост отца в формате
 #   Рост отца - ХХ см
 def get_height(family_height, name):
-    """Возвращает рост члена семьи по имени."""
-    for member_name, height in family_height:
-        if member_name == name:
+    #возвращает рост члена семьи по имени.
+    for member_name, height in family_height: #мать, 156 в ["мать", 165]
+        if member_name == name: #get_height(my_family_height, "отец") -------> 168
             return height
     raise ValueError(f"{name} не найден в списке")
 
 
 # Выведите на консоль общий рост вашей семьи как сумму ростов всех членов
 def total_height(family_height):
-    """Сумма ростов всех членов семьи."""
+    #Сумма ростов всех членов семьи.
     summ = 0
-    for name in range(len(family_height)):
+    for name in range(len(family_height)):  #обходим все элементы по len (=3)
         summ += family_height[name][1]
     return summ
 

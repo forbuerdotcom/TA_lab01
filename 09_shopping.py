@@ -36,8 +36,9 @@ shops = {
 
 
 def build_sweets(shops):
-    # 1. Собираем все предложения по каждому товару:
-    #    {название: [{'shop': ..., 'price': ...}, ...], ...}
+    #собираем все предложения по каждому товару:
+    #{название: [{'shop': ..., 'price': ...}, ...], ...}
+    #по сути просто переворачиваем структуру
     by_name = {}
     for shop, products in shops.items():
         for p in products:
@@ -48,7 +49,8 @@ def build_sweets(shops):
 
     # 2. Из каждого списка оставляем 2 магазина с минимальной ценой
     for name in by_name:
-        by_name[name] = sorted(by_name[name], key=lambda o: o['price'])[:2]
+        by_name[name] = sorted(by_name[name], key=lambda o: o['price'])[:2] #певые 2 элемента
+        #возвращаем отсортированный список, причем из за key=lambda o: o['price'] - сортируем по 'price'
 
     return by_name
 

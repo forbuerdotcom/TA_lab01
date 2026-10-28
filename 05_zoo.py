@@ -10,26 +10,26 @@ birds = ['rooster', 'ostrich', 'lark']
 
 def add_bear(zoo):
     #Посадите медведя (bear) между львом и кенгуру.
-    zoo.insert(1, 'bear')
+    zoo.insert(1, 'bear')  #insert - добавление в нужный индекс
     return zoo
 
 
 def add_birds(zoo, birds):
     #Добавьте птиц из списка birds в последние клетки зоопарка.
     for i in range(len(birds)):
-        zoo.append(birds[i])
+        zoo.append(birds[i]) #append - добавление в конец
     return zoo
 
 
 def remove_elephant(zoo):
     #Уберите слона (elephant) из зоопарка.
-    zoo.remove('elephant')
+    zoo.remove('elephant') #remove - убрать определенный элемент по его содержанию
     return zoo
 
 
 def cell_number(zoo, animal):
     #Номер клетки (1-индексированный, первая клетка - номер 1).
-    return zoo.index(animal) + 1
+    return zoo.index(animal) + 1 #Вернуть индекс
 
 
 def build_final_zoo():

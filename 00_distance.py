@@ -28,7 +28,7 @@ def compute_distances(sites):
 def main():
     distances = compute_distances(sites)
     for city, row in distances.items(): #находим пары
-        print(city, row)    # Достаем из картежа имя, а потом внутренний словарь
+        print(city, row)    #достаем из картежа имя, а потом внутренний словарь
 
 
 if __name__ == '__main__':
