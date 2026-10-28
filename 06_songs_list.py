@@ -15,19 +15,6 @@ violator_songs_list = [
     ['Clean', 5.83],
 ]
 
-# Распечатайте общее время звучания трех песен: 'Halo', 'Enjoy the Silence' и 'Clean' в формате
-#   Три песни звучат ХХХ минут
-# Обратите внимание, что суммирование чисел с плавающей точкой может давать погрешность,
-# округлите результат до 3 знаков после запятой
-total = 0
-for i in range(len(violator_songs_list)):
-    total += violator_songs_list[i][1]
-
-seconds = (total % 1) * 60
-print(round(total,3))
-print(int(total),":",round(seconds,3))
-
-
 # Есть словарь песен группы Depeche Mode
 violator_songs_dict = {
     'World in My Eyes': 4.76,
@@ -41,13 +28,38 @@ violator_songs_dict = {
     'Clean': 5.68,
 }
 
-# Распечатайте общее время звучания трех других песен: 'Sweetest Perfection', 'Policy of Truth' и 'Blue Dress'
-# в формате
-#   А другие три песни звучат ХХХ минут
-# Обратите внимание на округление
-total = 0
-for title, duration in violator_songs_list:
-    if title in ('Halo', 'Enjoy the Silence', 'Clean'):
-        total += duration
-total = round(total, 3)
-print(f"Три песни звучат {total} минут")
+
+# Распечатайте общее время звучания трех песен: 'Halo', 'Enjoy the Silence' и 'Clean'
+# в формате "Три песни звучат ХХХ минут"
+def sum_songs_list(songs, names):
+    #Сумма длительностей песен с указанными именами из списка [[name, duration], ...].
+    total = 0
+    for song_name, duration in songs:
+        if song_name in names:
+            total += duration
+    return round(total, 3)
+
+
+# Распечатайте общее время звучания трех других песен:
+# 'Sweetest Perfection', 'Policy of Truth' и 'Blue Dress'
+# в формате "А другие три песни звучат ХХХ минут"
+def sum_songs_dict(songs, names):
+    #Сумма длительностей песен с указанными именами из словаря {name: duration}.
+    total = 0
+    for name in names:
+        total += songs[name]
+    return round(total, 3)
+
+
+def main():
+    three = ['Halo', 'Enjoy the Silence', 'Clean']
+    total = sum_songs_list(violator_songs_list, three)
+    print(f"Три песни звучат {total} минут")
+
+    three_other = ['Sweetest Perfection', 'Policy of Truth', 'Blue Dress']
+    total2 = sum_songs_dict(violator_songs_dict, three_other)
+    print(f"А другие три песни звучат {total2} минут")
+
+
+if __name__ == '__main__':
+    main()

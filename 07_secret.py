@@ -32,10 +32,29 @@ secret_message = [
 #   4-е и 5-е слова нужно получить за 1 срез
 #   Если нужны вычисления и разные пробы - делайте это в консоли пайтона, тут нужен только результат
 
-word1 = secret_message[0][3:4]
-word2 = secret_message[1][9:13]
-word3 = secret_message[2][5:15:2]
-word4 = secret_message[3][12:6:-1]
-word5 = secret_message[4][20:15:-1]
 
-print(word1, word2, word3, word4, word5)
+def decode_word(index):
+    s = secret_message[index]
+    if index == 0:
+        return s[3]
+    if index == 1:
+        return s[9:13]
+    if index == 2:
+        return s[5:15:2]
+    if index == 3:
+        return s[12:6:-1]
+    if index == 4:
+        return s[20:15:-1]
+    raise IndexError(f"Нет правила для индекса {index}")
+
+
+def decode_message():
+    return ' '.join(decode_word(i) for i in range(len(secret_message)))
+
+
+def main():
+    print(decode_message())
+
+
+if __name__ == '__main__':
+    main()

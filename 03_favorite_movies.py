@@ -5,6 +5,7 @@
 
 my_favorite_movies = 'Терминатор, Пятый элемент, Аватар, Чужие, Назад в будущее'
 
+
 # Выведите на консоль с помощью индексации строки, последовательно:
 #   первый фильм
 #   последний
@@ -15,7 +16,29 @@ my_favorite_movies = 'Терминатор, Пятый элемент, Ават�
 # Использовать .split() или .find() или другие методы строки нельзя - пользуйтесь только срезами,
 # как указано в задании!
 
-print(my_favorite_movies[0:10])
-print(my_favorite_movies[42:])
-print(my_favorite_movies[12:25])
-print(my_favorite_movies[35:40])
+
+def first_movie():
+    return my_favorite_movies[0:10]
+
+
+def last_movie():
+    return my_favorite_movies[42:]
+
+
+def second_movie():
+    return my_favorite_movies[12:25]
+
+
+def second_from_end():
+    return my_favorite_movies[35:40]
+
+
+def main():
+    print(first_movie())
+    print(last_movie())
+    print(second_movie())
+    print(second_from_end())
+
+
+if __name__ == '__main__':
+    main()

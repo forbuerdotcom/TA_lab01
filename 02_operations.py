@@ -8,8 +8,17 @@
 # Порядок чисел нужно сохранить.
 
 # Пример для чисел "1 2 3" и "9"
-result = (1 + 2) * 3
-print(result)
+# result = (1 + 2) * 3
 
-result = 1 * 2 + 3 + 4*5
-print(result)
+
+def calculate():
+    # Решение: 1 * 2 + 3 + 4 * 5 = 2 + 3 + 20 = 25
+    return 1 * 2 + 3 + 4 * 5
+
+
+def main():
+    print(calculate())
+
+
+if __name__ == '__main__':
+    main()

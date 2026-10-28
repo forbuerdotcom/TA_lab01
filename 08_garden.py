@@ -7,19 +7,42 @@ garden = ('ромашка', 'роза', 'одуванчик', 'ромашка', 
 # На лугу сорвали цветы
 meadow = ('клевер', 'одуванчик', 'ромашка', 'клевер', 'мак', 'одуванчик', 'ромашка', )
 
+
 # Создайте множество цветов, произрастающих в саду и на лугу
-garden_set = set(garden)
-meadow_set = set(meadow)
+def garden_set():
+    return set(garden)
+
+
+def meadow_set():
+    return set(meadow)
 
 
 # Выведите на консоль все виды цветов
-print(garden_set | meadow_set)
+def all_flowers():
+    return garden_set() | meadow_set()
+
 
 # Выведите на консоль те, которые растут и там и там
-print(garden_set & meadow_set)
+def common_flowers():
+    return garden_set() & meadow_set()
+
 
 # Выведите на консоль те, которые растут в саду, но не растут на лугу
-print(garden_set - meadow_set)
+def only_in_garden():
+    return garden_set() - meadow_set()
+
 
 # Выведите на консоль те, которые растут на лугу, но не растут в саду
-print(meadow_set - garden_set)
+def only_in_meadow():
+    return meadow_set() - garden_set()
+
+
+def main():
+    print(all_flowers())
+    print(common_flowers())
+    print(only_in_garden())
+    print(only_in_meadow())
+
+
+if __name__ == '__main__':
+    main()

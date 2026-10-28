@@ -13,14 +13,30 @@ my_family_height = [
     ["брат", 169]
 ]
 
+
 # Выведите на консоль рост отца в формате
 #   Рост отца - ХХ см
-print("Рост ", my_family[1], " - ", my_family_height[1][1])
+def get_height(family_height, name):
+    """Возвращает рост члена семьи по имени."""
+    for member_name, height in family_height:
+        if member_name == name:
+            return height
+    raise ValueError(f"{name} не найден в списке")
+
 
 # Выведите на консоль общий рост вашей семьи как сумму ростов всех членов
-summ = 0
-for name in range(len(my_family_height)):
-    summ += my_family_height[name][1]
-print(summ)
+def total_height(family_height):
+    """Сумма ростов всех членов семьи."""
+    summ = 0
+    for name in range(len(family_height)):
+        summ += family_height[name][1]
+    return summ
 
 
+def main():
+    print("Рост отца - {} см".format(get_height(my_family_height, "отец")))
+    print(total_height(my_family_height))
+
+
+if __name__ == '__main__':
+    main()
